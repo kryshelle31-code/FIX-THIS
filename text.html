@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Thailand — Official Tourism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --teal: #0ea5a4;
+      --teal-dark: #0b8f8d;
+      --muted:#6b7280;
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#0f172a;background:#ffffff}
+
+    /* Page container */
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* Top navigation - aligned to top-right */
+    header{position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:saturate(140%) blur(6px);z-index:40;border-bottom:1px solid rgba(15,23,42,0.04)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max-width);margin:0 auto;padding:14px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--teal),#34d399);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:'Montserrat'}
+    nav{display:flex;gap:18px}
+    nav a{color:#0f172a;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+    nav a:hover{background:rgba(14,165,164,0.08)}
+    .cta{background:var(--teal);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+
+    /* Mobile menu */
+    .menu-btn{display:none;background:none;border:0;font-size:22px}
+    @media (max-width:900px){
+      nav{display:none}
+      .menu-btn{display:inline-block}
+    }
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 0}
+    .hero-left h1{font-family:'Montserrat',sans-serif;font-size:38px;margin:0 0 12px;color:#06283D}
+    .hero-left p{margin:0 0 18px;color:var(--muted);line-height:1.45}
+    .search-card{background:white;border-radius:12px;padding:18px;box-shadow:0 6px 22px rgba(13,17,25,0.06);border:1px solid rgba(8,10,12,0.03)}
+    .hero-image{width:100%;height:420px;border-radius:12px;overflow:hidden;display:block;background-image:linear-gradient(135deg, rgba(14,165,164,0.06), rgba(52,211,153,0.02));}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Sections */
+    section{padding:48px 0;border-top:1px solid rgba(15,23,42,0.03)}
+    h2.section-title{font-family:'Montserrat';margin:0 0 18px;font-size:22px}
+    p.lead{color:var(--muted);max-width:66ch}
+
+    /* Destinations grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(2,6,23,0.04);border:1px solid rgba(13,17,25,0.03)}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card .card-body{padding:14px}
+    .card .card-title{font-weight:600;margin:0 0 6px}
+    .card .card-sub{color:var(--muted);font-size:14px}
+
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}}
+    @media (max-width:700px){.grid{grid-template-columns:1fr}.container{padding:18px}.hero-left h1{font-size:26px}.hero-image{height:280px}}
+
+    /* Plan your trip form with different sized inputs but neat layout */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-grid .full{grid-column:1/-1}
+    label{display:block;font-size:13px;margin-bottom:6px;font-weight:600}
+    input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(15,23,42,0.07);font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .form-row{display:flex;gap:12px}
+    .small{width:48%}
+    .small-2{width:32%}
+    .inline{display:flex;gap:8px;align-items:center}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    .contact{min-width:220px}
+    .social{display:flex;gap:10px}
+    .social a{display:inline-block;padding:8px;border-radius:8px;background:rgba(14,165,164,0.06);text-decoration:none}
+
+    /* Utility */
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn-outline{border:1px solid var(--teal);color:var(--teal);background:white}
+
+    /* Accessibility improvements */
+    input:focus,select:focus,textarea:focus{outline:3px solid rgba(14,165,164,0.12);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo">TH</div>
+        <div>
+          <div style="font-weight:700">Discover Thailand</div>
+          <div style="font-size:12px;color:var(--muted)">Official Tourism Guide</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#plan">Plan Your Trip</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#plan">Book Now</a>
+      </nav>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" id="menuBtn">☰</button>
+    </div>
+
+    <!-- mobile menu (hidden by default) -->
+    <div id="mobile-menu" style="display:none;padding:12px 20px;border-top:1px solid rgba(15,23,42,0.03);">
+      <a href="#about" style="display:block;padding:10px 0">About</a>
+      <a href="#destinations" style="display:block;padding:10px 0">Destinations</a>
+      <a href="#plan" style="display:block;padding:10px 0">Plan Your Trip</a>
+      <a href="#contact" style="display:block;padding:10px 0">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Experience the Heart of Southeast Asia</h1>
+          <p class="lead">From the bustling streets of Bangkok to the peaceful beaches of Krabi, Thailand blends vibrant culture, world-class cuisine, and unforgettable landscapes. Plan your ideal trip with practical itineraries and trusted local guides.</p>
+
+          <div class="search-card">
+            <form aria-label="quick search form">
+              <div style="display:flex;gap:8px;align-items:center">
+                <input type="search" placeholder="Search destinations, activities, or tours" style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)" />
+                <button class="btn" style="background:var(--teal);color:white;border-radius:10px">Search</button>
+              </div>
+              <div style="margin-top:10px;font-size:13px;color:var(--muted)">Travel advisory: check local entry requirements before booking.</div>
+            </form>
+          </div>
+        </div>
+
+<section class="hero">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="practice.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-text">
+      <h1>Experience the Heart of Southeast Asia</h1>
+      <p>From the bustling streets of Bangkok to the peaceful beaches of Krabi, Thailand blends vibrant culture, world-class cuisine, and unforgettable landscapes.</p>
+    </div>
+  </div>
+</section>
+
+      <section id="about">
+        <h2 class="section-title">About Thailand</h2>
+        <p class="lead">Thailand is known for its rich history, warm hospitality, and diverse attractions — from UNESCO heritage sites and ornate temples to tropical islands and lush highlands. Whether you seek cultural immersion, culinary adventures, or restful beaches, Thailand offers an accessible and memorable travel experience.</p>
+      </section>
+
+      <section id="destinations">
+        <h2 class="section-title">Popular Destinations</h2>
+        <div class="grid">
+          <article class="card">
+            <img src="bangkok_skyline.jpeg" alt="Bangkok skyline" />
+            <div class="card-body">
+              <div class="card-title">Bangkok</div>
+              <div class="card-sub">Vibrant capital — temples, markets, and nightlife.</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="chiang_mai.jpg" alt="Chiang Mai" />
+            <div class="card-body">
+              <div class="card-title">Chiang Mai</div>
+              <div class="card-sub">Cultural heartland — temples, night markets, and mountain treks.</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="phuket_krabi.avif" alt="Phuket" />
+            <div class="card-body">
+              <div class="card-title">Phuket & Krabi</div>
+              <div class="card-sub">Beaches and islands — ideal for relaxation and water activities.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="plan">
+        <h2 class="section-title">Plan Your Trip</h2>
+        <p class="muted">Complete the form below and our travel specialists will contact you with a custom itinerary and price estimate.</p>
+
+        <form class="form-grid" style="margin-top:16px;" aria-label="Plan your trip form">
+          <div class="full">
+            <label for="fullname">Full name</label>
+            <input id="fullname" name="fullname" placeholder="e.g. Maria Santos" />
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" />
+          </div>
+
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" placeholder="+63 912 345 6789" />
+          </div>
+
+          <div>
+            <label for="travelers">Travelers</label>
+            <select id="travelers" name="travelers">
+              <option>1</option>
+              <option>2</option>
+              <option>3-4</option>
+              <option>5+</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="dates">Dates (approx.)</label>
+            <input id="dates" name="dates" placeholder="e.g. Oct 10 - Oct 18, 2025" />
+          </div>
+
+          <div>
+            <label for="budget">Budget (per person)</label>
+            <input id="budget" name="budget" placeholder="e.g. $800 - $1200" />
+          </div>
+
+          <div class="full">
+            <label for="interests">Interests & preferences</label>
+            <textarea id="interests" name="interests" placeholder="e.g. temples, beaches, hiking, local food, family-friendly" ></textarea>
+          </div>
+
+          <div class="full" style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px">
+            <div style="display:flex;flex-direction:column">
+              <label class="muted">Subscribe to newsletter</label>
+              <div class="inline"><input type="checkbox" id="sub"/><label for="sub" style="font-weight:500;margin-left:6px">Yes, send travel tips</label></div>
+            </div>
+
+            <div style="text-align:right">
+              <button type="submit" class="cta">Request Itinerary</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Contact & Practical Info</h2>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+          <div class="contact">
+            <p class="muted">For urgent travel assistance or press inquiries, use the details below.</p>
+            <p style="margin:8px 0"><strong>Phone:</strong> +66 2 123 4567</p>
+            <p style="margin:8px 0"><strong>Email:</strong> info@discoverthailand.example</p>
+            <p style="margin:8px 0"><strong>Office:</strong> Bangkok, Thailand</p>
+          </div>
+
+          <div style="flex:1;min-width:260px">
+            <iframe title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=100.0,12.0,102.0,15.0&amp;layer=mapnik" style="width:100%;height:220px;border:1px solid rgba(15,23,42,0.04);border-radius:10px"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-inner container">
+          <div>
+            <div style="font-weight:700">Discover Thailand</div>
+            <div class="muted" style="margin-top:6px">Official tourism information and trusted travel resources.</div>
+          </div>
+
+          <div style="text-align:right;min-width:220px">
+            <div class="muted">Follow us</div>
+            <div class="social" style="margin-top:8px">
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Twitter">t</a>
+            </div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">© <span id="year">2025</span> Discover Thailand</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', ()=>{
+      const open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Ensure footer year is current
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple client-side form handling (demo only)
+    document.querySelector('form[aria-label="Plan your trip form"]').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thank you — your request has been submitted. Our travel team will contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
